@@ -11,8 +11,11 @@ app.use(bodyParser.json());
 app.use(cors());
 
 const CommonRouter= require('./Router/CommonRouter')
+const UserRouter= require('./Router/UserRouter')
 
 app.use('/',CommonRouter)
+app.use('/user',UserRouter)
+
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
