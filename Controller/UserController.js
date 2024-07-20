@@ -74,6 +74,16 @@ const taskController = {
       res.status(400).json({ message: "Task order update failed" });
     }
   },
+  updateTaskState: async (req, res) => {
+    try {
+      const { _id, state } = req.body;
+      const updatedTask = await Task.findByIdAndUpdate(_id, { state }, { new: true });
+      res.status(200).json({ message: "Task state updated successfully", updatedTask });
+    } catch (error) {
+      console.error(error);
+      res.status(400).json({ message: "Task state update failed" });
+    }
+  },
 };
 
 module.exports = taskController;
