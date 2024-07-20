@@ -6,7 +6,6 @@ const object = {
   signup: async (req, res) => {
     try {
       const { firstName, lastName, email, password } = req.body;
-      console.log(req.body);
       const payload = req.body;
       const existingUser = await Userschema.findOne({ email });
 
@@ -35,7 +34,6 @@ const object = {
   login: async (req, res) => {
     try {
       const { email, password } = req.body;
-      console.log(req.body);
       const payload = req.body;
 
       const existingUser = await Userschema.find({ email });
